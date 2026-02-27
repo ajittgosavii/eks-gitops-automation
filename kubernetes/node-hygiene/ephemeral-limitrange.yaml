@@ -1,0 +1,19 @@
+# LimitRange for ephemeral-storage defaults
+# Applied for INC0010072
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: ephemeral-storage-defaults
+  namespace: default
+  labels:
+    managed-by: ai-kubeops-platform
+    snow-ticket: INC0010072
+spec:
+  limits:
+    - type: Container
+      default:
+        ephemeral-storage: 1Gi
+      defaultRequest:
+        ephemeral-storage: 500Mi
+      max:
+        ephemeral-storage: 5Gi

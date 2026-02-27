@@ -1,0 +1,6 @@
+# Node Hygiene DaemonSet - auto-generated
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-hygiene-agent
+  namespace: kube-system

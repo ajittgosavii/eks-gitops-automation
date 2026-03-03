@@ -1,0 +1,31 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "pack_bedrock_DEV",
+      "Effect": "Allow",
+      "Action": [
+        "bedrock:InvokeModel",
+        "bedrock:ListFoundationModels",
+        "bedrock:GetFoundationModel",
+        "bedrock:InvokeModelWithResponseStream"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": [
+            "us-west-1",
+            "us-west-2"
+          ]
+        },
+        "ForAnyValue:StringEquals": {
+          "aws:TagKeys": [
+            "CostCenter",
+            "Team",
+            "Environment"
+          ]
+        }
+      }
+    }
+  ]
+}
